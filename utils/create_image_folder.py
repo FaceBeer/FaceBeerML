@@ -24,7 +24,7 @@ if __name__ == "__main__":
     time.sleep(2)
 
     for i in range(1000):
-        if i % 50:
+        if i % 50 == 0:
             print(f"Image {i}/1000.")
         filename = str(new_path/str(i).zfill(5))+'.jpg'
         camera.capture(filename)
