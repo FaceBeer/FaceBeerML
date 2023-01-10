@@ -24,7 +24,9 @@ if __name__ == "__main__":
     time.sleep(2)
 
     for i in range(1000):
-        filename = str(new_path/str(i).zfill(5)+'.jpg')
+        if i % 50:
+            print(f"Image {i}/1000.")
+        filename = str(new_path/str(i).zfill(5))+'.jpg'
         camera.capture(filename)
 #
 # camera.capture("/home/pi/Pictures/img.jpg")
