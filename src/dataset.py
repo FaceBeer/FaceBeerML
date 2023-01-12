@@ -26,3 +26,15 @@ class Dataset:
             labels = '\n'.join(sorted(self.train_generator.class_indices.keys()))
             with open('data/labels.txt', 'w') as f:
                 f.write(labels)
+
+    def representative_data_gen(self):
+        dataset_list = tf.data.Dataset.list_files(self.path + '/*/*')
+        for i in range(100):
+            image = next(iter(dataset_list))
+            print(image)
+            image = tf.io.read_file(image)
+            image = tf.io.decode_jpeg(image, channels=3)
+            image = tf.image.resize(image, [constants.IMAGE_SIZE, constants.IMAGE_SIZE])
+            image = tf.cast(image / 255., tf.float32)
+            image = tf.expand_dims(image, 0)
+            yield [image]

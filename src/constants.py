@@ -1,5 +1,5 @@
 IMAGE_SIZE = 256  # 256 pixels after resize
 IMAGE_SHAPE = (IMAGE_SIZE, IMAGE_SIZE, 3)  # 3 channels
 BATCH_SIZE = 16
-CLASSES = 2
-EPOCHS = 5
+CLASSES = 4
+EPOCHS = 2
