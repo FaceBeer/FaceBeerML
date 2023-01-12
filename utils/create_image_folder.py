@@ -23,8 +23,10 @@ if __name__ == "__main__":
     camera.resolution = (1920, 1080)
     time.sleep(2)
 
-    for i in range(1000):
-        filename = str(new_path/str(i).zfill(5)+'.jpg')
+    for i in range(500):
+        if i % 50 == 0:
+            print(f"Image {i}/500.")
+        filename = str(new_path/str(i).zfill(5))+'.jpg'
         camera.capture(filename)
 #
 # camera.capture("/home/pi/Pictures/img.jpg")
